@@ -1,45 +1,62 @@
-package com.gauravbytes.gkart.entity;
+package com.garbarino.productos.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import org.hibernate.annotations.Formula;
 
 
 /**
- * 
- * @author Gaurav Rai Mazra
- * <a href="http://www.gauravbytes.com">Catch me</a>
+ * @author Gaston
+ *
  */
 @Entity
 @Table(name = "products", schema = "product")
 public class Product {
+	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private String id;
+	
 	private String name;
-	private Color color;
+	
+	private String description;
+	
 	private double price;
-	private Size size;
 	
-	@Transient
-	@Formula("SELECT AVG(rating) FROM product_ratings pr where pr.product_id=id")
-	private double averageRating;
+	private Integer stock;
 	
+	private Brand brand;
+	
+//	@Transient
+//	@Formula("SELECT AVG(rating) FROM product_ratings pr where pr.product_id=id")
+//	private double averageRating;
+//	
 	public Product() {
 		
 	}
 	
-	public Product(String id, String name, Color color, double price, Size size) {
+	/**
+	 * 	Constructor de la Entity Product.
+	 * 
+	 * @param id
+	 * @param name
+	 * @param description
+	 * @param price
+	 * @param stock
+	 * @param brand
+	 */
+	public Product(String id, String name, String description, double price, Integer stock, Brand brand) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.color = color;
+		this.description = description;
 		this.price = price;
-		this.size = size;
+		this.stock = stock;
+		this.brand = brand;
 	}
-
+	
 	public String getId() {
 		return id;
 	}
@@ -56,12 +73,12 @@ public class Product {
 		this.name = name;
 	}
 
-	public Color getColor() {
-		return color;
+	public Brand getBrand() {
+		return brand;
 	}
 
-	public void setColor(Color color) {
-		this.color = color;
+	public void setBrand(Brand brand) {
+		this.brand = brand;
 	}
 
 	public double getPrice() {
@@ -71,26 +88,33 @@ public class Product {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
-	public Size getSize() {
-		return size;
+	
+	public String getDescription() {
+		return description;
 	}
 
-	public void setSize(Size size) {
-		this.size = size;
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Integer getStock() {
+		return stock;
+	}
+
+	public void setStock(Integer stock) {
+		this.stock = stock;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((color == null) ? 0 : color.hashCode());
+		result = prime * result + ((brand == null) ? 0 : brand.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(price);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((size == null) ? 0 : size.hashCode());
 		return result;
 	}
 
@@ -103,7 +127,7 @@ public class Product {
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
-		if (color != other.color)
+		if (brand != other.brand)
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -117,16 +141,15 @@ public class Product {
 			return false;
 		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
 			return false;
-		if (size != other.size)
-			return false;
 		return true;
 	}
 
+
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Product [id=").append(id).append(", name=").append(name).append(", color=").append(color)
-				.append(", price=").append(price).append(", size=").append(size).append("]");
-		return builder.toString();
+		return String.format(
+				"Product [getId()=%s, getName()=%s, getBrand()=%s, getPrice()=%s, getDescription()=%s, getStock()=%s]",
+				getId(), getName(), getBrand(), getPrice(), getDescription(), getStock());
 	}
+
 }

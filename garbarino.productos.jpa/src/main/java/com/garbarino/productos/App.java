@@ -1,12 +1,13 @@
-package com.gauravbytes.gkart;
+package com.garbarino.productos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+
 /**
- * 
- * @author Gaurav Rai Mazra <a href="http://www.gauravbytes.com">Catch me</a>
+ * @author Gaston
+ *
  */
 @SpringBootApplication
 @EnableJpaRepositories

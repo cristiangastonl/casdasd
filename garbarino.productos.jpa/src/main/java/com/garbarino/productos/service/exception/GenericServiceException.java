@@ -1,9 +1,9 @@
-package com.gauravbytes.gkart.service.exception;
+package com.garbarino.productos.service.exception;
+
 
 /**
- * 
- * @author Gaurav Rai Mazra
- * <a href="http://www.gauravbytes.com">Catch me</a>
+ * @author Gaston
+ *
  */
 public class GenericServiceException extends RuntimeException {
 

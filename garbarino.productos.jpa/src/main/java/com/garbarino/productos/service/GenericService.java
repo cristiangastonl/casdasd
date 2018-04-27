@@ -1,15 +1,17 @@
-package com.gauravbytes.gkart.service;
+package com.garbarino.productos.service;
 
 import java.io.Serializable;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.gauravbytes.gkart.service.exception.GenericServiceException;
+import com.garbarino.productos.service.exception.GenericServiceException;
+
 
 /**
+ * 	Excepcion de la capa service.
  * 
- * @author Gaurav Rai Mazra
- * <a href="http://www.gauravbytes.com">Catch me</a>
+ * @author Gaston
+ *
  * @param <T>
  * @param <ID>
  */

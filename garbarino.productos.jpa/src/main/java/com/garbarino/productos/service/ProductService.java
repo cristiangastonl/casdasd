@@ -1,10 +1,10 @@
-package com.gauravbytes.gkart.service;
+package com.garbarino.productos.service;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-import com.gauravbytes.gkart.entity.Product;
-import com.gauravbytes.gkart.jpa.ProductRepository;
+import com.garbarino.productos.entity.Product;
+import com.garbarino.productos.jpa.ProductRepository;
 
 /**
  * 
